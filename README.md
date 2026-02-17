@@ -31,13 +31,13 @@ graph LR
     style E fill:#bfb,stroke:#333,stroke-width:2px
     style F fill:#ff9,stroke:#333,stroke-width:2px
 ```
-💼 Business Problem
+##💼 Business Problem
 E-commerce businesses often sit on millions of transaction rows but treat every customer identically.
 
 The Pain Point: High-value customers ("Platinum") receive the same generic newsletters as one-time buyers ("Silver").
 The Solution: An automated engine that segments customers based on behavior (Recency, Frequency, Monetary) and pushes personalized "Next Best Actions" to marketing teams in real time.
 
-🛠️ Tech Stack
+##🛠️ Tech Stack
 Language: Python 3.9+ (pandas, scikit-learn, sqlalchemy, hubspot-api-client)
 
 Database: PostgreSQL (Relational Data Warehouse)
@@ -47,7 +47,7 @@ Machine Learning: K-Means Clustering (Unsupervised Learning)
 Operational Tool: HubSpot CRM (Free Tier)
 
 Visualization: Power BI (Desktop)
-⚙️ Methodology & Workflow
+##⚙️ Methodology & Workflow
 1. Ingestion & Modeling (SQL)
 The Olist E-Commerce Dataset consists of 9 relational tables.
 
@@ -84,7 +84,7 @@ To HubSpot: Implemented batch processing (100 records/batch) to update customer 
 
 To Power BI: Created a direct connection to analytics.customer_rfm_table in PostgreSQL for executive dashboards.
 
-🚀 How to Run
+##🚀 How to Run
 Prerequisites
 PostgreSQL installed locally
 
@@ -116,7 +116,7 @@ python src/db_ingest.py
 # Step 2: Run Analysis & Update CRM
 python src/main_pipeline.py
 
-📊 Repository Structure
+##📊 Repository Structure
 
 olist-intelligence-bridge/
 ├── data/                   # Raw CSV files (Olist Dataset)
@@ -133,7 +133,7 @@ olist-intelligence-bridge/
 ├── .env
 └── README.md
 
-📈 Results
+##📈 Results
 Segmentation: Identified 3 distinct customer personas (Platinum, Gold, Silver).
 
 Automation: Reduced manual segmentation time from hours to seconds.
