@@ -20,16 +20,17 @@ The system follows a **Split Architecture** design, separating the Operational P
 
 ```mermaid
 graph LR
-    A[Raw Data (PostgreSQL)] --> B(Python ETL & Cleaning)
-    B --> C{K-Means Clustering}
-    C --> D[Staging: Clean RFM Table]
-    D --> E[HubSpot CRM]
-    D --> F[Power BI Dashboard]
-    
+    A["Raw Data (PostgreSQL)"] --> B["Python ETL & Cleaning"]
+    B --> C["K-Means Clustering"]
+    C --> D["Staging: Clean RFM Table"]
+    D --> E["HubSpot CRM"]
+    D --> F["Power BI Dashboard"]
+
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style C fill:#bbf,stroke:#333,stroke-width:2px
     style E fill:#bfb,stroke:#333,stroke-width:2px
     style F fill:#ff9,stroke:#333,stroke-width:2px
+```
 💼 Business Problem
 E-commerce businesses often sit on millions of transaction rows but treat every customer identically.
 
