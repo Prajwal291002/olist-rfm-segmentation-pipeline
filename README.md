@@ -142,12 +142,12 @@ olist-intelligence-bridge/
 ### Actionability: Marketing teams now receive "ready-to-send" campaign data directly in their CRM tool.
 
 Author: 
+
 License:
 
 
 ***
 
-Would you like me to adjust the badges or color scheme (for example, custom icons or GitHub-style dark theme)?
 
 
 
