@@ -135,7 +135,7 @@ python src/data_loader.py
 ```
 Output: Generates data/processed/clean_data.csv
 
---Step 2: Sync to CRM
+- Step 2: Sync to CRM
 ```bash 
 python src/hubspot_connector.py
 ```
