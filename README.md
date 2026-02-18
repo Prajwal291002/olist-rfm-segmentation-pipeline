@@ -84,9 +84,9 @@ The model assigns a Tier (Cluster) and a Next Best Action using priority-based r
 
 ### 4. Operationalization (Reverse ETL)
 
--- To HubSpot: Implemented robust batch processing (100 records/batch) with retry logic to update customer properties via API without hitting rate limits.
+- To HubSpot: Implemented robust batch processing (100 records/batch) with retry logic to update customer properties via API without hitting rate limits.
 
--- To Power BI: Created a direct connection to the processed RFM table for executive dashboards.
+- To Power BI: Created a direct connection to the processed RFM table for executive dashboards.
 
 
 
