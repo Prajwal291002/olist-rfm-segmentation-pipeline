@@ -38,18 +38,19 @@ graph LR
     style G fill:#ff9,stroke:#333,stroke-width:2px
 ```
 ## 🛠️ Tech Stack
-Language: Python 3.9+ (pandas, numpy, requests, scikit-learn)
+-- Language: Python 3.9+ (pandas, numpy, requests, scikit-learn)
 
-Database: PostgreSQL (Relational Data Warehouse)
+-- Database: PostgreSQL (Relational Data Warehouse)
 
-Machine Learning: K-Means Clustering (Unsupervised Learning) + Log Transformation
+-- Machine Learning: K-Means Clustering (Unsupervised Learning) + Log Transformation
 
-Operational Tool: HubSpot CRM (API Batch Upsert)
+-- Operational Tool: HubSpot CRM (API Batch Upsert)
 
-Visualization: Matplotlib, Seaborn (EDA), Power BI (Dashboarding)
+-- Visualization: Matplotlib, Seaborn (EDA), Power BI (Dashboarding)
 
 ## ⚙️ Methodology & Workflow
-1. Ingestion & Modeling (ETL)
+
+### 1. Ingestion & Modeling (ETL)
 The Olist E-Commerce Dataset consists of 9 relational tables.
 
 Challenge: customer_id is unique per order, not per person.
@@ -60,7 +61,7 @@ Data Integrity: Filtered out ~3,000 "Ghost Orders" (Canceled/Unavailable) to pre
 
 Enrichment: Merged Review scores (Sentiment) and Product Categories for context.
 
-2. Feature Engineering (Python)
+### 2. Feature Engineering (Python)
 Implemented an RFM Analysis Model:
 
 Recency: Days since last purchase (Dynamic reference date).
@@ -71,7 +72,7 @@ Monetary: Sum of price + freight.
 
 Optimization: Applied np.log1p (Log Transformation) and StandardScaler to handle the "Long Tail" skew typical in retail data.
 
-3. The "Brain": Strategy Matrix (ML + Logic)
+### 3. The "Brain": Strategy Matrix (ML + Logic)
 The model assigns a Tier (Cluster) and a Next Best Action using priority-based rules:
 
 | Priority  | Context        | Logic Applied         | Example Action                        |
@@ -81,19 +82,20 @@ The model assigns a Tier (Cluster) and a Next Best Action using priority-based r
 | 3         | Gold Tier      | frequency = High      | "Retention: 10% Off Next Order"       |
 | 4         | Silver Tier    | spend < threshold     | "Win-Back: We Miss You"               |
 
-4. Operationalization (Reverse ETL)
-To HubSpot: Implemented robust batch processing (100 records/batch) with retry logic to update customer properties via API without hitting rate limits.
+### 4. Operationalization (Reverse ETL)
 
-To Power BI: Created a direct connection to the processed RFM table for executive dashboards.
+-- To HubSpot: Implemented robust batch processing (100 records/batch) with retry logic to update customer properties via API without hitting rate limits.
+
+-- To Power BI: Created a direct connection to the processed RFM table for executive dashboards.
 
 
 
 ## 📊 Key Results
-The "One-and-Done" Problem: Discovered that 96% of customers purchase only once.
+-- The "One-and-Done" Problem: Discovered that 96% of customers purchase only once.
 
-The "Platinum" Tier: Only ~3% of users are repeat high-value buyers, but they drive significant revenue.
+-- The "Platinum" Tier: Only ~3% of users are repeat high-value buyers, but they drive significant revenue.
 
-Risk Detection: Identified 216 Platinum Customers with low sentiment scores (1-2 stars) who were at high risk of churning and flagged them for immediate human intervention.
+-- Risk Detection: Identified 216 Platinum Customers with low sentiment scores (1-2 stars) who were at high risk of churning and flagged them for immediate human intervention.
 
 ## 🚀 How to Run
 
@@ -111,20 +113,30 @@ Risk Detection: Identified 216 Platinum Customers with low sentiment scores (1-2
 git clone https://github.com/Prajwal291002/olist-loyalty-engine.git
 cd olist-rfm-segmentation-pipeline
 ```
-Install Dependencies
+
+--- 
+
+### Install Dependencies
+```bash
 pip install -r requirements.txt
+```
+---
 
-Setup Environment Variables
-Open src/hubspot_connector.py and add your Token (or use a .env file):
+### Setup Environment Variables
+
+-- Open src/hubspot_connector.py and add your Token (or use a .env file):
+```bash
 HUBSPOT_ACCESS_TOKEN = 'your_hubspot_token_here'
-
-Run the Pipeline
-Step 1: Data Cleaning & ETL
-python src/data_loader.py
+```
+### Run the Pipeline
+-- Step 1: Data Cleaning & ETL
+```bash python src/data_loader.py
+```
 Output: Generates data/processed/clean_data.csv
 
-Step 2: Sync to CRM
-python src/hubspot_connector.py
+--Step 2: Sync to CRM
+```bash python src/hubspot_connector.py
+```
 Output: Batches 1000 contacts to HubSpot with "Next Best Action" tags.
 
 ## 📂 Repository Structure
@@ -139,7 +151,7 @@ olist-intelligence-bridge/
 │   └── 3.0_strategy.ipynb  # K-Means Model & Strategy Logic
 ├── src/
 │   ├── data_loader.py      # Production ETL Script
-│   └── hubspot_connector.py # API Batch Upsert Script
+│   └── hubspot_connector.py # API Batch insert/create Script
 ├── requirements.txt        # Dependencies
 └── README.md               # Documentation
 ```
