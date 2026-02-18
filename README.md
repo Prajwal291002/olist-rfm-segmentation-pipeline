@@ -127,7 +127,7 @@ python src/hubspot_connector.py
 Output: Batches 1000 contacts to HubSpot with "Next Best Action" tags.
 
 ## 📂 Repository Structure
-
+```
 olist-intelligence-bridge/
 ├── data/                   # Raw and Processed Data (GitIgnored)
 │   ├── raw/                # Original Olist CSVs
@@ -141,3 +141,4 @@ olist-intelligence-bridge/
 │   └── hubspot_connector.py # API Batch Upsert Script
 ├── requirements.txt        # Dependencies
 └── README.md               # Documentation
+```
