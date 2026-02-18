@@ -97,19 +97,20 @@ Risk Detection: Identified 216 Platinum Customers with low sentiment scores (1-2
 
 ## 🚀 How to Run
 
-Prerequisites
-Python 3.9+
+### Prerequisites
+- **Python:** 3.9+
+- **HubSpot Developer Account:** Private App Access Token
+- **Dataset:** Olist Dataset placed in `data/raw/`
 
-HubSpot Developer Account (Private App Access Token)
+---
 
-Olist Dataset (placed in data/raw/)
+### 🧩 Installation
 
-Installation
-Clone the Repo
-
-git clone [https://github.com/Prajwal291002/olist-loyalty-engine.git](https://github.com/Prajwal291002/olist-loyalty-engine.git)
+**1. Clone the Repository**
+```bash
+git clone https://github.com/Prajwal291002/olist-loyalty-engine.git
 cd olist-rfm-segmentation-pipeline
-
+```
 Install Dependencies
 pip install -r requirements.txt
 
